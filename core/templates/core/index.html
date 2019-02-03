@@ -12,7 +12,32 @@
                 {% else %}
                     olá, {{ request.user.username }}, seja bem-vindo!
                 {% endif %}
+                <br>
+                Encontre seu token de autenticação no endpoint <code>/api/token/</code> <br>
+                <span>faça um POST passando "username" e "password" no corpo da solicitação</span>
+            </p>
+        {% else %}
+            <p class="lead mt-3">
+                faça login ou cadastre-se utilizar a API
             </p>
         {% endif %}
     </div>
+
+    {% if request.user.is_authenticated %}
+    <div class="container text-center pb-5 my-5">
+        <h1 class="display-4">Requisições</h1>
+        <p class="lead mt-3">
+            Ao tentar acessar o endpoint <a class="text-danger" href="{% url 'api:feed-detail' %}" target="_blank"><code>/api/feed/detail/</code></a> sem informar o token, receberá a mensagem de que as credenciais não foram informadas
+        </p>
+        <p class="lead mt-3">
+            Envie o token no headers neste formato: <br>
+            <code>Authorization: Token {{ request.user.auth_token }}</code>
+        </p>
+        <h1 class="display-4 mt-4 pt-4">Endpoint sem Autenticação</h1>
+        <p class="lead mt-3">
+            Caso queira apenas visualizar a resposta em json, disponibilizei um endpoint que não exige autenticação.
+            <a href="{% url 'api:feed-detail-no-auth' %}" target="_blank">link</a>
+        </p>
+    </div>
+    {% endif %}
 {% endblock %}
