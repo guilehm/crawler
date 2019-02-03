@@ -1,5 +1,6 @@
 from requests.exceptions import RequestException
-from rest_framework.permissions import AllowAny
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
@@ -9,7 +10,8 @@ from utils import create_feed
 
 
 class FeedDetailView(APIView):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
     renderer_classes = (JSONRenderer,)
 
     def get(self, request, *args, **kwargs):
