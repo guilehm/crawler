@@ -15,6 +15,7 @@ lxml = "*"
 pytest-django = "*"
 django = "*"
 django-pytest = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.6"
