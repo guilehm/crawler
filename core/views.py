@@ -19,7 +19,7 @@ def login_view(request):
             )
             login(request, authenticated_user)
             return redirect('core:index')
-    return render(request, 'core/login.html', {
+    return render(request, 'core/accounts/login.html', {
         'form': form,
     })
 
