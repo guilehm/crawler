@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+{% block content %}
+    {% language 'pt-BR' %}
+    <div class="container text-center pt-5 my-5">
+        <h1 class="display-2">login</h1>
+        <p class="lead mt-3">
+            faça aqui seu login
+        </p>
+    </div>
+    <div class="container text-center">
+        {% for error in form.non_field_errors %}
+            <div class="negative-feedback mb-3">
+                {{ error }}
+            </div>
+        {% endfor %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <label for="id_username">usuário</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="id_icon_username">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="id_username" name="username" placeholder="usuário" aria-describedby="inputGroupPrepend3" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <label for="id_username">senha</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="id_password" name="password" placeholder="senha" aria-describedby="inputGroupPrepend3" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">entrar</button>
+        </form>
+    </div>
+    {% endlanguage %}
+{% endblock %}
