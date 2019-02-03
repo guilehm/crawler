@@ -1,5 +1,3 @@
-import json
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -56,11 +54,3 @@ def create_feed():
         dict(item=parse_item(node)) for node in nodes
     ])
     return feed_dict
-
-
-if __name__ == '__main__':
-    feed = create_feed()
-    with open('outfile.json', 'w') as outfile:
-        outfile.write(
-            json.dumps(feed, indent=4, separators=(',', ': '), ensure_ascii=False)
-        )
