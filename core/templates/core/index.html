@@ -4,9 +4,15 @@
 
 {% block content %}
     <div class="container text-center py-5 my-5">
-        <h1 class="display-2">Autoesporte</h1>
-        <p class="lead mt-3">
-            feed
-        </p>
+        <h1 class="display-2">Autoesporte Feed</h1>
+        {% if request.user.is_authenticated %}
+            <p class="lead mt-3">
+                {% if request.user.first_name %}
+                    olá, {{ request.user.first_name }}, seja bem-vindo!
+                {% else %}
+                    olá, {{ request.user.username }}, seja bem-vindo!
+                {% endif %}
+            </p>
+        {% endif %}
     </div>
 {% endblock %}

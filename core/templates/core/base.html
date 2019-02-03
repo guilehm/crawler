@@ -26,6 +26,15 @@
                     <li class="nav-link">
                         <a class="text-dark" target="_blank" href="{% url 'api:feed-detail' %}"><strong>api</strong></a>
                     </li>
+                    {% if not request.user.is_authenticated %}
+                        <li class="nav-link">
+                            <a class="text-dark" href="{% url 'core:login' %}"><strong>login</strong></a>
+                        </li>
+                    {% else %}
+                        <li class="nav-link">
+                            <a class="text-dark" href="{% url 'core:logout' %}"><strong>logout</strong></a>
+                        </li>
+                    {% endif %}
                 </ul>
 
             </div>
