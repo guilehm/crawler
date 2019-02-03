@@ -17,6 +17,7 @@ django = "*"
 django-pytest = "*"
 djangorestframework = "*"
 flake8 = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.6"
