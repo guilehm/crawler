@@ -1,0 +1,20 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+jupyter = "*"
+isort = "*"
+flake8 = "*"
+
+[packages]
+beautifulsoup4 = "*"
+requests = "*"
+lxml = "*"
+pytest-django = "*"
+django = "*"
+django-pytest = "*"
+
+[requires]
+python_version = "3.6"
