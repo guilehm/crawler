@@ -23,9 +23,6 @@
                     <li class="nav-link">
                         <a class="text-dark" href="{% url 'core:index' %}"><strong>home</strong></a>
                     </li>
-                    <li class="nav-link">
-                        <a class="text-dark" target="_blank" href="{% url 'api:feed-detail' %}"><strong>api</strong></a>
-                    </li>
                     {% if not request.user.is_authenticated %}
                         <li class="nav-link">
                             <a class="text-dark" href="{% url 'core:login' %}"><strong>login</strong></a>
