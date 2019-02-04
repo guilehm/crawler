@@ -24,6 +24,7 @@ static3 = "*"
 gunicorn = "*"
 boto3 = "*"
 psycopg2 = "*"
+django-storages = "*"
 
 [requires]
 python_version = "3.6"
