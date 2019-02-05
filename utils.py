@@ -13,14 +13,14 @@ def get_items_nodes(url=URL):
 
 
 def parse_description(description_data):
-    soup_description = BeautifulSoup(description_data.text, 'html.parser')
+    soup_description = BeautifulSoup(description_data.get_text(strip=True), 'html.parser')
     description_nodes = soup_description.find_all()
     description_items = list()
     for d_item in description_nodes:
         if d_item.name == 'p' and d_item.text.strip():
             description_items.append({
                 'type': 'text',
-                'content': d_item.text.strip()
+                'content': d_item.get_text(strip=True)
             })
         if d_item.name == 'div':
             if d_item.find('img'):
@@ -37,8 +37,8 @@ def parse_description(description_data):
 
 
 def parse_item(node_item):
-    title = node_item.find('title').text
-    link = node_item.find('link').text
+    title = node_item.find('title').get_text(strip=True)
+    link = node_item.find('link').get_text(strip=True)
     description = parse_description(node_item.find('description'))
     item_data = dict(
         title=title,
