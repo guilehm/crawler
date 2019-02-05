@@ -3,6 +3,8 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import redirect, render
 from rest_framework.authtoken.models import Token
 
+from core.models import DataFile
+
 
 def signup(request):
     if request.method == 'POST':
@@ -43,3 +45,8 @@ def login_view(request):
 
 def index(request):
     return render(request, 'core/index.html')
+
+
+def feed_detail(request, feed_id):
+    feed = DataFile.objects.get(id=feed_id)
+    return redirect(feed.file.url)

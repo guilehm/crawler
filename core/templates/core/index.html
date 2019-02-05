@@ -38,6 +38,10 @@
             Caso queira apenas visualizar a resposta em json, disponibilizei um endpoint que não exige autenticação.
             <a href="{% url 'api:feed-detail-no-auth' %}" target="_blank">link</a>
         </p>
+        <h1 class="display-4 mt-4 pt-4">JSON Formatado</h1>
+        <p class="lead mt-3">
+            Para uma melhor visualização da resposta, acesse esse endpoint <code><a href="{% url 'api:feed-detail-save' %}" target="_blank">link</a></code>
+        </p>
     </div>
     {% endif %}
 {% endblock %}
