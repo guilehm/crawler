@@ -16,22 +16,22 @@ def parse_description(description_data):
     soup_description = BeautifulSoup(description_data.get_text(strip=True), 'html.parser')
     description_nodes = soup_description.find_all()
     description_items = list()
-    for d_item in description_nodes:
-        if d_item.name == 'p' and d_item.text.strip():
+    for d_node in description_nodes:
+        if d_node.name == 'p' and d_node.text.strip():
             description_items.append({
                 'type': 'text',
-                'content': d_item.get_text(strip=True)
+                'content': d_node.get_text(strip=True)
             })
-        if d_item.name == 'div':
-            if d_item.find('img'):
+        if d_node.name == 'div':
+            if d_node.find('img'):
                 description_items.append({
                     'type': 'image',
-                    'content': d_item.img['src']
+                    'content': d_node.img['src']
                 })
-            if d_item.find('ul'):
+            if d_node.find('ul'):
                 description_items.append({
                     'type': 'links',
-                    'content': [li.a['href'] for li in d_item.find('ul') if hasattr(li, 'a') if li.a]
+                    'content': [li.a['href'] for li in d_node.find('ul') if hasattr(li, 'a') if li.a]
                 })
     return description_items
 
