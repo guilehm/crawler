@@ -65,9 +65,9 @@ class FeedDetailSaveView(APIView):
                 status=status_code,
             )
 
-        with tempfile.TemporaryFile(mode='w+') as file:
+        with tempfile.TemporaryFile() as file:
             file.write(
-                json.dumps(feed_data, indent=4, separators=(',', ': '), ensure_ascii=False)
+                json.dumps(feed_data, indent=4, separators=(',', ': '), ensure_ascii=False).encode('UTF-8')
             )
             file.seek(0)
             data_file = DataFile.objects.create(
