@@ -31,7 +31,7 @@ def parse_description(description_data):
             if d_item.find('ul'):
                 description_items.append({
                     'type': 'links',
-                    'content': [li.a['href'] for li in d_item.find('ul') if hasattr(li, 'a')]
+                    'content': [li.a['href'] for li in d_item.find('ul') if hasattr(li, 'a') if li.a]
                 })
     return description_items
 
