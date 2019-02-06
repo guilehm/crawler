@@ -23,7 +23,7 @@
 # Informações gerais
 * O arquivo principal do scrapper está neste link [https://github.com/Guilehm/crawler/blob/master/utils.py](https://github.com/Guilehm/crawler/blob/master/utils.py)
 * Os testes podem ser encontrados em [https://github.com/Guilehm/crawler/tree/master/api/tests](https://github.com/Guilehm/crawler/tree/master/api/tests)
-* Para facilidade dos usuários, deixei o projeto flexível para ser opcional rodar com Docker. A documentação para iniciar o projeto com Docker está no final.
+* Para facilidade dos usuários, deixei o projeto flexível para ser opcional rodar com Docker.
 
 # Instalação
 
@@ -66,7 +66,7 @@ O servidor estará rodando em [http://localhost:8000/](http://localhost:8000/).
 É necessário ter o Docker instalado em sua máquina.
 Recomendo este tutorial de instalação para o Linux [https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt](https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt)
 
-Após ter concluído as etapas anteriores e estar com o serviço do Docker executando, execute:
+Após ter concluído as etapas anteriores e estar com o serviço do Docker rodando, execute:
 
 
     $ docker-compose up
@@ -118,7 +118,7 @@ Anote seu Token
 }
 ```
 
-O endpoint `http://localhost:8000/api/feed/detail/` só é acessível para usuários cadastrados e com Token.
+O endpoint [http://localhost:8000/api/feed/detail/](http://localhost:8000/api/feed/detail/) só é acessível para usuários cadastrados e com Token.
 
 Faça um GET em [http://localhost:8000/api/feed/detail/](http://localhost:8000/api/feed/detail/) e envie seu token no headers no formato descrito abaixo
 ```
