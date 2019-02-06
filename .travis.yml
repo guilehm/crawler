@@ -4,7 +4,6 @@ python:
   - 3.6.7
 
 services:
-  - postgresql
   - docker
 
 env:
@@ -22,7 +21,7 @@ install:
   - docker -v
 
 before_script:
-  - psql -c "CREATE DATABASE postgres;" -U postgres
+  - python manage.py migrate
 
 script:
   - pipenv run make detect-migrations
