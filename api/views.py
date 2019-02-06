@@ -1,5 +1,6 @@
 import json
 import tempfile
+import uuid
 
 from django.core.files import File
 from django.shortcuts import redirect
@@ -71,6 +72,9 @@ class FeedDetailSaveView(APIView):
             )
             file.seek(0)
             data_file = DataFile.objects.create(
-                file=File(file, name='feed.json')
+                file=File(file, name='{name}.{extension}'.format(
+                    name=str(uuid.uuid4()),
+                    extension='json',
+                ))
             )
         return redirect('core:feed-detail', feed_id=data_file.id)
