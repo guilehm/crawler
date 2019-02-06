@@ -3,7 +3,8 @@ language: python
 python:
   - 3.6.7
 
-services: postgresql
+services:
+  - docker
 
 env:
   - DJANGO=2.1.5
@@ -16,9 +17,11 @@ before_install:
 install:
   - pip install pipenv
   - pipenv install --dev
+  - docker-compose -v
+  - docker -v
 
 before_script:
-  - psql -c "CREATE DATABASE mydb;" -U postgres
+  - python manage.py migrate
 
 script:
   - pipenv run make detect-migrations
