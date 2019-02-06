@@ -20,19 +20,23 @@ def parse_description(description_data):
         if d_node.name == 'p' and d_node.text.strip():
             description_items.append({
                 'type': 'text',
-                'content': d_node.get_text(strip=True)
+                'content': d_node.get_text(strip=True),
             })
         if d_node.name == 'div':
             if d_node.find('img'):
-                description_items.append({
-                    'type': 'image',
-                    'content': d_node.img['src']
-                })
+                content = d_node.img['src']
+                if content:
+                    description_items.append({
+                        'type': 'image',
+                        'content': content,
+                    })
             if d_node.find('ul'):
-                description_items.append({
-                    'type': 'links',
-                    'content': [li.a['href'] for li in d_node.find('ul') if hasattr(li, 'a') if li.a]
-                })
+                content = [li.a['href'] for li in d_node.find('ul') if hasattr(li, 'a') if li.a]
+                if content:
+                    description_items.append({
+                        'type': 'links',
+                        'content': content,
+                    })
     return description_items
 
 
