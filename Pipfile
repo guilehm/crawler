@@ -26,6 +26,7 @@ boto3 = "*"
 psycopg2 = "*"
 django-storages = "*"
 docker-compose = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.6"
