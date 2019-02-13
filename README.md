@@ -1,4 +1,5 @@
-# Crawler [![Build Status](https://travis-ci.org/Guilehm/crawler.svg?branch=master)](https://travis-ci.org/Guilehm/crawler)
+# Crawler 
+[![Build Status](https://travis-ci.org/Guilehm/crawler.svg?branch=master)](https://travis-ci.org/Guilehm/crawler)
 
 ---
 # Exemplo em produção para testes
